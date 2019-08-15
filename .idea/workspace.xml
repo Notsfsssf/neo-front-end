@@ -1,9 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5957e72d-c5a9-4a76-a5cd-f7d9b95c0c4c" name="Default Changelist" comment="createArticle tsx">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/untitled3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/neo-front-end.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/Admin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Admin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AdminArticleCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminArticleCreate.tsx" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1PDemaVLXhUpzc9QLsjKs4vMQ0y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="C:\Users\asdpl\WebstormProjects\neo-front-end\node_modules\typescript\lib" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="axios type" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/App.test.tsx" />
+      <test-names>
+        <test-name value="axios type" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.axios type" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5957e72d-c5a9-4a76-a5cd-f7d9b95c0c4c" name="Default Changelist" comment="" />
+      <created>1565413254364</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565413254364</updated>
+      <workItem from="1565413257203" duration="64000" />
+      <workItem from="1565413349489" duration="341000" />
+      <workItem from="1565417902407" duration="4943000" />
+      <workItem from="1565428292656" duration="698000" />
+      <workItem from="1565433727950" duration="5436000" />
+      <workItem from="1565440727612" duration="2152000" />
+      <workItem from="1565442969465" duration="36000" />
+      <workItem from="1565446854777" duration="3567000" />
+      <workItem from="1565488274694" duration="5172000" />
+      <workItem from="1565500792204" duration="7699000" />
+      <workItem from="1565528356424" duration="2492000" />
+      <workItem from="1565570790894" duration="187000" />
+      <workItem from="1565587272024" duration="7472000" />
+      <workItem from="1565611398761" duration="981000" />
+      <workItem from="1565621025634" duration="223000" />
+      <workItem from="1565746537082" duration="2708000" />
+      <workItem from="1565755388193" duration="2660000" />
+      <workItem from="1565764323140" duration="2113000" />
+      <workItem from="1565766523448" duration="172000" />
+      <workItem from="1565767555403" duration="166000" />
+      <workItem from="1565767760180" duration="1138000" />
+      <workItem from="1565782144300" duration="2878000" />
+      <workItem from="1565787484649" duration="3468000" />
+      <workItem from="1565877618454" duration="2896000" />
+    </task>
+    <task id="LOCAL-00001" summary="createArticle tsx">
+      <created>1565790826573</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565790826573</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="createArticle tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="createArticle tsx" />
   </component>
 </project>

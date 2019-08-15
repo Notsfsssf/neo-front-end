@@ -11,11 +11,11 @@ import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import {makeStyles, useTheme, Theme, createStyles} from '@material-ui/core/styles';
 import {AdminArticle} from "./AdminArticle";
 import React from 'react';
-import {AppBar, CssBaseline} from "@material-ui/core";
-import { Route } from 'react-router-dom';
+import {AppBar, CssBaseline, Switch} from "@material-ui/core";
+import {Route} from 'react-router-dom';
 import AdminArticleCreate from "./AdminArticleCreate";
 
 const drawerWidth = 240;
@@ -63,7 +63,7 @@ interface ResponsiveDrawerProps {
 }
 
 export default function Admin(props: ResponsiveDrawerProps) {
-    const { container } = props;
+    const {container} = props;
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -74,22 +74,22 @@ export default function Admin(props: ResponsiveDrawerProps) {
 
     const drawer = (
         <div>
-            <div className={classes.toolbar} />
-            <Divider />
+            <div className={classes.toolbar}/>
+            <Divider/>
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
+                        <ListItemText primary={text}/>
                     </ListItem>
                 ))}
             </List>
-            <Divider />
+            <Divider/>
             <List>
                 {['All mail', 'Trash', 'Spam'].map((text, index) => (
                     <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
+                        <ListItemText primary={text}/>
                     </ListItem>
                 ))}
             </List>
@@ -98,7 +98,7 @@ export default function Admin(props: ResponsiveDrawerProps) {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <IconButton
@@ -108,7 +108,7 @@ export default function Admin(props: ResponsiveDrawerProps) {
                         onClick={handleDrawerToggle}
                         className={classes.menuButton}
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap>
                         Admin
@@ -147,9 +147,9 @@ export default function Admin(props: ResponsiveDrawerProps) {
                 </Hidden>
             </nav>
             <main className={classes.content}>
-                <div className={classes.toolbar} />
-                <Route path='/' component={AdminArticleCreate}/>
-                <Route path='/article/:id' component={AdminArticle}/>
+                <div className={classes.toolbar}/>
+                <Route exact path='/admin/' component={AdminArticleCreate}/>
+                <Route path='/admin/article/:id' component={AdminArticleCreate}/>
             </main>
         </div>
     );
