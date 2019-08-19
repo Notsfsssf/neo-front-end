@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import Home from "./Home";
-import {Route, Redirect} from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import Article from "./Home/Article";
 import SignIn from "./SignIn";
 import ErrorPage from "./ErrorPage";
 import Admin from "./Admin/Admin";
-import {createMuiTheme} from "@material-ui/core";
-import {green, orange, purple} from "@material-ui/core/colors";
-import {ThemeProvider} from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core";
+import { green, orange, purple } from "@material-ui/core/colors";
+import { ThemeProvider } from "@material-ui/styles";
 
 const outerTheme = createMuiTheme({
     palette: {
@@ -18,12 +18,14 @@ const outerTheme = createMuiTheme({
     },
 });
 const App: React.FC = () => {
-   return (
+    return (
         <div className="App">
             <ThemeProvider theme={outerTheme}>
-            <Route path='/' component={Home}/>
-            <Route path='/signin' component={SignIn}/>
-            <Route path='/admin' component={Admin}/>
+                <Switch>
+                    <Route path='/signin' component={SignIn} />
+                    <Route path='/admin' component={Admin} />
+                    <Route path='/' component={Home} />
+                </Switch>
             </ThemeProvider>
         </div>
     );

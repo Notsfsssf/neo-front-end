@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
-import {Card, Container, ListItemText, Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/styles";
-import {RouteComponentProps} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Card, Container, ListItemText, Typography, Link } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import { RouteComponentProps } from "react-router-dom";
 import API from "../API";
+import { Copyright } from "../SignIn";
 
 
 const useStyles = makeStyles({
@@ -32,7 +33,30 @@ export class ArticleBean {
     updateTime: string = ""
     createTime: string = ""
 }
-
+function CCCopyright() {
+    return (
+        <>
+        <Typography variant="body2" color="textSecondary" align="center">
+            {'Copyright © '}
+            <Link color="inherit" href="https://perol.me/">
+                Perol Website
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'. Built with '}
+            <Link color="inherit" href="https://material-ui.com/">
+                Material-UI.
+            </Link>
+        </Typography>
+        <Typography variant="body2" color="textSecondary" align="center">
+            版权声明：本文为Perol原创文章，遵循  
+            <Link color="inherit" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">
+            CC 4.0 by-sa 
+            </Link>
+            版权协议，转载请附上原文出处链接和本声明。
+        </Typography>
+        </>
+    );
+}
 export default function Article(props: ArticleProps) {
     const classes = useStyles();
     const id = props.match.params.id
@@ -46,9 +70,9 @@ export default function Article(props: ArticleProps) {
         userId: undefined
     });
     useEffect(function () {
-
         async function f() {
             let response = await API.get(`/article/` + id)
+
             setData(response.data);
         }
 
@@ -57,19 +81,20 @@ export default function Article(props: ArticleProps) {
 
 
     const ReactMarkdown = require('react-markdown/with-html')
+
     return (
         <React.Fragment>
-            <Container maxWidth="xs" className={classes.container}>
+            <Container maxWidth="sm" className={classes.container}>
 
-                    <ListItemText primary={data.title} secondary={data.createTime} />
-
-                {/*<Typography variant="h5" component="h2">*/}
-                {/*    {data.title}*/}
-                {/*</Typography>*/}
+                <ListItemText primary={data.title} secondary={data.createTime} />
                 <ReactMarkdown
                     source={data.content}
                     escapeHtml={false}
                 />
+                {
+                    data.updateTime?<ListItemText primary='修改于' secondary={data.updateTime}  />:<></>
+                }
+                <CCCopyright />
             </Container>
 
 

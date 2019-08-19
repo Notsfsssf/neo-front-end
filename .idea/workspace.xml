@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5957e72d-c5a9-4a76-a5cd-f7d9b95c0c4c" name="Default Changelist" comment="createArticle tsx">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/untitled3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/neo-front-end.iml" afterDir="false" />
+    <list default="true" id="5957e72d-c5a9-4a76-a5cd-f7d9b95c0c4c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Admin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Admin.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Admin/AdminArticleCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminArticleCreate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Home/Article.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home/Article.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Home/Hello.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home/Hello.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +117,9 @@
       <workItem from="1565767760180" duration="1138000" />
       <workItem from="1565782144300" duration="2878000" />
       <workItem from="1565787484649" duration="3468000" />
-      <workItem from="1565877618454" duration="2896000" />
+      <workItem from="1565877618454" duration="3411000" />
+      <workItem from="1565915231468" duration="5274000" />
+      <workItem from="1565929083199" duration="1566000" />
     </task>
     <task id="LOCAL-00001" summary="createArticle tsx">
       <created>1565790826573</created>
@@ -127,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565790826573</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Patch Article">
+      <created>1565880542310</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1565880542310</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +156,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="createArticle tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="createArticle tsx" />
+    <MESSAGE value="Patch Article" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patch Article" />
   </component>
 </project>

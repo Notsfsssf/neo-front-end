@@ -11,10 +11,9 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import MenuIcon from '@material-ui/icons/Menu';
-import {Route, RouteComponentProps} from "react-router";
+import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import Hello from "./Home/Hello";
 import Article from "./Home/Article";
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         button: {
@@ -26,12 +25,12 @@ const useStyles = makeStyles((theme: Theme) =>
         title: {
             flexGrow: 1,
         },
-        appBar:{
+        appBar: {
             background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
         }
     }),
 )
-export default function Home(props:RouteComponentProps) {
+export default function Home(props: RouteComponentProps) {
     const classes = useStyles();
     function jumpTo() {
         props.history.push('/signin')
@@ -41,7 +40,7 @@ export default function Home(props:RouteComponentProps) {
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon/>
+                        <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
                         Blog
@@ -49,9 +48,13 @@ export default function Home(props:RouteComponentProps) {
                     <Button color="inherit" onClick={jumpTo}>Login</Button>
                 </Toolbar>
             </AppBar>
-            <CssBaseline/>
-            <Route exact path='/' component={Hello}/>
-            <Route  path='/article/:id' component={Article}/>
+            <CssBaseline />
+          <Switch>
+     
+            <Route path='/article/:id' component={Article} />
+            <Route  path='/' component={Hello} />
+            </Switch>
+     
         </React.Fragment>
     )
 

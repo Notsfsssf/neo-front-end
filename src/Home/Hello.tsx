@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
     Button,
     Card, CardActionArea,
@@ -13,9 +13,9 @@ import {
     createStyles
 } from "@material-ui/core";
 import API from "../API";
-import {RouteComponentProps} from "react-router";
-import {green, purple} from "@material-ui/core/colors";
-import {ArticleBean} from "./Article";
+import { RouteComponentProps, Link } from "react-router-dom";
+import { green, purple } from "@material-ui/core/colors";
+import { ArticleBean } from "./Article";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -102,37 +102,41 @@ export default function Hello(props: RouteComponentProps) {
             </CardActionArea>
         </Grid>
     )
+    function onPenBlankLink(url: string) {
+        window.open(url)
+    }
     const hero = <div className={classes.heroContent}>
         <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                Album layout
+                欢迎
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                Something short and leading about the collection below—its contents, the creator, etc.
-                Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                entirely.
+                这是我的个人主页，记录开发日常中所踩的坑,测试spring boot在开发环境上的配置需求.
             </Typography>
             <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">
                     <Grid item>
-                        <Button variant="contained" color="primary">
-                            GO TO MY GITHUB PAGE
+                        <Button variant="contained" color="primary" onClick={() => onPenBlankLink('https://github.com/Notsfsssf')}>
+                            前往我的 GITHUB 主页
                         </Button>
                     </Grid>
                     <Grid item>
-                        <Button variant="outlined" color="primary">
-                            DOWNLOAD MY APP
+                        <Button variant="outlined" color="primary" onClick={() => onPenBlankLink('https://play.google.com/store/apps/developer?id=Perol_Notsf')}>
+                            下载我开发的 APP
                         </Button>
                     </Grid>
                 </Grid>
             </div>
         </Container>
     </div>
+    const errorContainer = <>
+        <p>Spring boot挂掉了</p>
+    </>
     return (
         <React.Fragment>
             {hero}
             <Grid container spacing={4} className={classes.cardGrid}>
-                {listItem}
+                {data.length === 0 ? errorContainer : listItem}
             </Grid>
         </React.Fragment>
     )
