@@ -1,11 +1,11 @@
 import React, { useEffect, useState, ComponentProps } from "react";
-import { Card, Container, ListItemText, Typography, Link, Theme, List, ListItem, ListItemAvatar, Avatar, Divider, Paper, TextField } from "@material-ui/core";
+import { Card, Container, ListItemText, Typography, Link, Theme, List, ListItem, ListItemAvatar, Avatar, Divider, Paper, TextField, Button } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/styles";
 import { RouteComponentProps } from "react-router-dom";
 import API from "../API";
 import { Copyright } from "../SignIn";
 import classes from "*.module.css";
-
+import Editor from 'for-editor'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -59,6 +59,7 @@ export class CommentBean {
     content: string | undefined
     name: string | undefined
     email: string | undefined
+    articleId:number|undefined
     createTime: string | undefined
 }
 function CCCopyright() {
@@ -85,25 +86,44 @@ function CCCopyright() {
         </>
     );
 }
-function CreateComment(){
-    const classes = useStyles();
+const useCreateCommentStyles = makeStyles((theme: Theme) =>
+    createStyles({
+     
+        textField: {
+            marginLeft: theme.spacing(1),
+            marginRight: theme.spacing(1),
+          },
+          editor:{
+              height:100,
+          },
+          button: {
+            margin: theme.spacing(1),
+          }
+
+    }));
+function CreateComment(props:CommentInfo){
+    const classes = useCreateCommentStyles();
     const [data, setData] = useState<CommentBean>({
         id:undefined,
         content:"",
         name:"",
         email:"",
-        createTime:""
+        createTime:"",
+        articleId:parseInt(props.id)
     })
     async function create(){
         if(data.name&&data.content&&data.email){
             let response = await API.post('/comment',data)
+            window.location.reload(true)
         }
       
     }
     const handleChange = (name: keyof CommentBean) => (event: React.ChangeEvent<HTMLInputElement>) => {
         setData({ ...data, [name]: event.target.value });
       };
-    
+      function handleContent(value: string) {
+        setData({...data, ['content']: value});
+    }
     return (<>
      <TextField
         id="outlined-name"
@@ -123,6 +143,11 @@ function CreateComment(){
         margin="normal"
         variant="outlined"
       />
+        <TextField label="Comment"         margin="normal"
+        variant="outlined" value={data.content} className={classes.editor}  onChange={handleChange('content')}/>
+        <Button variant="contained" className={classes.button} onClick={create}>
+        Default
+      </Button>
     </>)
 }
 function CommentAndEditor(props: CommentInfo) {
@@ -141,21 +166,14 @@ function CommentAndEditor(props: CommentInfo) {
         <>
             <ListItem alignItems="flex-start">
                 <ListItemAvatar>
-                    <Avatar >1</Avatar>
+                    <Avatar >{typeof comment.name ==="string"?comment.name.substr(0,1):"A"}</Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                    primary="Brunch this weekend?"
+                    primary={comment.name}
                     secondary={
                         <React.Fragment>
-                            <Typography
-                                component="span"
-                                variant="body2"
-                                className={classes.inline}
-                                color="textPrimary"
-                            >
-                                Ali Connors
-                             </Typography>
-                            {" — I'll be in your neighborhood doing errands this…"}
+                   
+                            {comment.content}
                         </React.Fragment>
                     }
                 />
@@ -209,6 +227,7 @@ export default function Article(props: ArticleProps) {
                     }
                 </Paper>
                 <CommentAndEditor id={id} />
+                <CreateComment id={id}/>
                 <CCCopyright />
             </Container>
 
