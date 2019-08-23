@@ -1,11 +1,9 @@
 import React, { useEffect, useState, ComponentProps } from "react";
-import { Card, Container, ListItemText, Typography, Link, Theme, List, ListItem, ListItemAvatar, Avatar, Divider, Paper, TextField, Button } from "@material-ui/core";
+import { Card, Container, ListItemText, Typography, Link, Theme, List, ListItem, ListItemAvatar, Avatar, Divider, Paper, TextField, Button, Grid } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/styles";
 import { RouteComponentProps } from "react-router-dom";
 import API from "../API";
-import { Copyright } from "../SignIn";
-import classes from "*.module.css";
-import Editor from 'for-editor'
+
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -15,19 +13,17 @@ const useStyles = makeStyles((theme: Theme) =>
         textField: {
             marginLeft: theme.spacing(1),
             marginRight: theme.spacing(1),
-          },
+        },
         paper: {
             padding: theme.spacing(1),
 
         },
         container: {
-            margin: 8,
-
+            padding: theme.spacing(2)
         },
         root: {
             width: '100%',
-            maxWidth: 360,
-            backgroundColor: theme.palette.background.paper,
+
         },
         inline: {
             display: 'inline',
@@ -59,7 +55,7 @@ export class CommentBean {
     content: string | undefined
     name: string | undefined
     email: string | undefined
-    articleId:number|undefined
+    articleId: number | undefined
     createTime: string | undefined
 }
 function CCCopyright() {
@@ -88,69 +84,81 @@ function CCCopyright() {
 }
 const useCreateCommentStyles = makeStyles((theme: Theme) =>
     createStyles({
-     
+
         textField: {
-            marginLeft: theme.spacing(1),
-            marginRight: theme.spacing(1),
-          },
-          editor:{
-              height:100,
-          },
-          button: {
+  
+        },
+        editor: {
+
+        },
+        button: {
             margin: theme.spacing(1),
-          }
+        }
 
     }));
-function CreateComment(props:CommentInfo){
+export function CreateComment(props: CommentInfo) {
     const classes = useCreateCommentStyles();
     const [data, setData] = useState<CommentBean>({
-        id:undefined,
-        content:"",
-        name:"",
-        email:"",
-        createTime:"",
-        articleId:parseInt(props.id)
+        id: undefined,
+        content: "",
+        name: "",
+        email: "",
+        createTime: "",
+        articleId: parseInt(props.id)
     })
-    async function create(){
-        if(data.name&&data.content&&data.email){
-            let response = await API.post('/comment',data)
+    async function create() {
+        if (data.name && data.content && data.email) {
+            let response = await API.post('/comment', data)
             window.location.reload(true)
         }
-      
+
     }
     const handleChange = (name: keyof CommentBean) => (event: React.ChangeEvent<HTMLInputElement>) => {
         setData({ ...data, [name]: event.target.value });
-      };
-      function handleContent(value: string) {
-        setData({...data, ['content']: value});
+    };
+    function handleContent(value: string) {
+        setData({ ...data, ['content']: value });
     }
     return (<>
-     <TextField
-        id="outlined-name"
-        label="Name"
-        className={classes.textField}
-        value={data.name}
-        onChange={handleChange('name')}
-        margin="normal"
-        variant="outlined"
-      />
-       <TextField
-        id="outlined-email"
-        label="Email"
-        className={classes.textField}
-        value={data.email}
-        onChange={handleChange('email')}
-        margin="normal"
-        variant="outlined"
-      />
-        <TextField label="Comment"         margin="normal"
-        variant="outlined" value={data.content} className={classes.editor}  onChange={handleChange('content')}/>
-        <Button variant="contained" className={classes.button} onClick={create}>
-        Default
+        <Grid container>
+            <Grid item xs={12}>
+                <TextField label="Comment" margin="normal" multiline fullWidth
+                    variant="outlined" value={data.content}  className={classes.textField} onChange={handleChange('content')} />
+            </Grid>
+            <Grid item xs={6}>
+                <TextField
+                    id="outlined-name"
+                    label="Name"
+                    fullWidth
+                    className={classes.textField}
+                    value={data.name}
+                    onChange={handleChange('name')}
+                    margin="normal"
+                    variant="outlined"
+                />
+            </Grid>
+            <Grid item xs={6}>
+                <TextField
+                    id="outlined-email"
+                    fullWidth
+                    label="Email"
+                    className={classes.textField}
+                    value={data.email}
+                    onChange={handleChange('email')}
+                    margin="normal"
+                    variant="outlined"
+                />
+            </Grid>
+
+            <Grid item xs={12}>
+                <Button variant="outlined" color="primary" className={classes.button} onClick={create}>
+                    评论
       </Button>
+            </Grid>
+        </Grid>
     </>)
 }
-function CommentAndEditor(props: CommentInfo) {
+export function CommentList(props: CommentInfo) {
     const classes = useStyles();
     const [data, setData] = useState([])
     useEffect(function () {
@@ -164,15 +172,15 @@ function CommentAndEditor(props: CommentInfo) {
     }, [])
     const comments = data.map((comment: CommentBean) =>
         <>
-            <ListItem alignItems="flex-start">
+            <ListItem alignItems="center" key={comment.id}>
                 <ListItemAvatar>
-                    <Avatar >{typeof comment.name ==="string"?comment.name.substr(0,1):"A"}</Avatar>
+                    <Avatar >{typeof comment.name === "string" ? comment.name.substr(0, 1) : "A"}</Avatar>
                 </ListItemAvatar>
                 <ListItemText
                     primary={comment.name}
                     secondary={
                         <React.Fragment>
-                   
+
                             {comment.content}
                         </React.Fragment>
                     }
@@ -214,22 +222,30 @@ export default function Article(props: ArticleProps) {
 
     return (
         <React.Fragment>
-            <Container maxWidth="sm" className={classes.container}>
 
-                <Paper className={classes.paper}>
-                    <ListItemText primary={data.title} secondary={data.createTime} />
-                    <ReactMarkdown
-                        source={data.content}
-                        escapeHtml={false}
-                    />
-                    {
-                        data.updateTime ? <ListItemText primary='修改于' secondary={data.updateTime} /> : <></>
-                    }
-                </Paper>
-                <CommentAndEditor id={id} />
-                <CreateComment id={id}/>
-                <CCCopyright />
-            </Container>
+            <Grid container spacing={2} className={classes.container} >
+                <Grid item xs={12}>
+                    <Paper className={classes.paper}>
+                        <ListItemText primary={data.title} secondary={data.createTime} />
+                        <ReactMarkdown
+                            source={data.content}
+                            escapeHtml={false}
+                        />
+                        {
+                            data.updateTime ? <ListItemText primary='修改于' secondary={data.updateTime} /> : <></>
+                        }
+                    </Paper>
+                </Grid>
+                <Grid item xs={12}>
+                    <CommentList id={id} />
+                </Grid>
+                <Grid item xs={12}>
+                    <CreateComment id={id} />
+                </Grid>
+                <Grid item xs={12}>
+                    <CCCopyright />
+                </Grid>
+            </Grid>
 
 
         </React.Fragment>

@@ -11,9 +11,11 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import MenuIcon from '@material-ui/icons/Menu';
-import { Route, RouteComponentProps, Switch } from "react-router-dom";
+import { Route, RouteComponentProps, Switch, Redirect } from "react-router-dom";
 import Hello from "./Home/Hello";
 import Article from "./Home/Article";
+import NotFoundPage from "./NotFoundPage";
+import MessageBoard from "./MessageBoard";
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         button: {
@@ -32,8 +34,8 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 export default function Home(props: RouteComponentProps) {
     const classes = useStyles();
-    function jumpTo() {
-        props.history.push('/signin')
+    function jumpTo(url:string) {
+        props.history.push('/'+url)
     }
     return (
         <React.Fragment>
@@ -45,13 +47,15 @@ export default function Home(props: RouteComponentProps) {
                     <Typography variant="h6" className={classes.title}>
                         Blog
                     </Typography>
-                    <Button color="inherit" onClick={jumpTo}>Login</Button>
+                    <Button color="inherit" onClick={()=>jumpTo('message')}>Message</Button>
+                    <Button color="inherit" onClick={()=>jumpTo('signin')}>Login</Button>
                 </Toolbar>
             </AppBar>
             <CssBaseline />
           <Switch>
      
             <Route path='/article/:id' component={Article} />
+            <Route path='/message' component={MessageBoard}/>
             <Route  path='/' component={Hello} />
             </Switch>
      

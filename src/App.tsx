@@ -9,6 +9,8 @@ import Admin from "./Admin/Admin";
 import { createMuiTheme } from "@material-ui/core";
 import { green, orange, purple } from "@material-ui/core/colors";
 import { ThemeProvider } from "@material-ui/styles";
+import MessageBoard from './MessageBoard';
+import NotFoundPage from './NotFoundPage';
 
 const outerTheme = createMuiTheme({
     palette: {
@@ -24,7 +26,10 @@ const App: React.FC = () => {
                 <Switch>
                     <Route path='/signin' component={SignIn} />
                     <Route path='/admin' component={Admin} />
+               
                     <Route path='/' component={Home} />
+                
+                   
                 </Switch>
             </ThemeProvider>
         </div>
