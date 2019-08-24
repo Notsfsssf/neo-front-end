@@ -86,7 +86,7 @@ const useCreateCommentStyles = makeStyles((theme: Theme) =>
     createStyles({
 
         textField: {
-  
+
         },
         editor: {
 
@@ -120,12 +120,12 @@ export function CreateComment(props: CommentInfo) {
         setData({ ...data, ['content']: value });
     }
     return (<>
-        <Grid container>
+        <Grid container >
             <Grid item xs={12}>
                 <TextField label="Comment" margin="normal" multiline fullWidth
-                    variant="outlined" value={data.content}  className={classes.textField} onChange={handleChange('content')} />
+                    variant="outlined" value={data.content} className={classes.textField} onChange={handleChange('content')} />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
                 <TextField
                     id="outlined-name"
                     label="Name"
@@ -137,7 +137,7 @@ export function CreateComment(props: CommentInfo) {
                     variant="outlined"
                 />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
                 <TextField
                     id="outlined-email"
                     fullWidth
@@ -191,7 +191,9 @@ export function CommentList(props: CommentInfo) {
     )
     return (<>
         <List className={classes.root}>
-            {comments}
+            {data.length !== 0 ? comments : <>
+                Nobody here but us chickens
+            </>}
         </List>
     </>)
 }
