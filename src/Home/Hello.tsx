@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import {
     Button,
     Card, CardActionArea,
-    CardActions,
     CardContent, CardMedia,
     Container,
-    createMuiTheme,
     Grid, Hidden,
     makeStyles,
     Typography,
@@ -13,8 +11,7 @@ import {
     createStyles
 } from "@material-ui/core";
 import API from "../API";
-import { RouteComponentProps, Link } from "react-router-dom";
-import { green, purple } from "@material-ui/core/colors";
+import { RouteComponentProps } from "react-router-dom";
 import { ArticleBean } from "./Article";
 
 
@@ -57,11 +54,16 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Hello(props: RouteComponentProps) {
     const classes = useStyles();
     const [data, setData] = useState([]);
+    const [requestError, setRequestError] = useState(false)
     useEffect(() => {
 
         async function f() {
-            let response = await API.get(`/article`)
-            setData(response.data);
+            try {
+                let response = await API.get(`/article`)
+                setData(response.data);
+            } catch (e) {
+                setRequestError(true)
+            }
         }
 
         f()
@@ -132,11 +134,14 @@ export default function Hello(props: RouteComponentProps) {
     const errorContainer = <>
         <p>Spring boot挂掉了</p>
     </>
+    const empty = <>
+        Blank
+</>
     return (
         <React.Fragment>
             {hero}
             <Grid container spacing={4} className={classes.cardGrid}>
-                {data.length === 0 ? errorContainer : listItem}
+                {requestError ? errorContainer : data.length === 0 ? empty : listItem}
             </Grid>
         </React.Fragment>
     )
