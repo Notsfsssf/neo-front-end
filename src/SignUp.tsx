@@ -59,9 +59,9 @@ export default function SignUp(props: RouteComponentProps) {
   const [email, setEmail] = useState<string>("");
   const tryToSignUp = async () => {
     const response = await API.post("/user", {
-      name: name,
-      password: password,
-      email: email
+      "name": name,
+      "password": password,
+      "email": email
     });
     if (response.status === 200) {
       props.history.push("/siginin");

@@ -9,13 +9,14 @@ import {
   Toolbar,
   Typography
 } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Route, RouteComponentProps, Switch, Redirect } from "react-router-dom";
 import Hello from "./Home/Hello";
 import Article from "./Home/Article";
 import NotFoundPage from "./NotFoundPage";
 import MessageBoard from "./MessageBoard";
+import API from "./API";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     button: {
@@ -35,9 +36,24 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Home(props: RouteComponentProps) {
   const classes = useStyles();
+  const [im, setIm] = useState(undefined);
   function jumpTo(url: string) {
     props.history.push("/" + url);
   }
+  useEffect(() => {
+    const f = async () => {
+      const au = localStorage.getItem("authorization");
+      if (au) {
+        const response = await API.get("/whoami", {
+          headers: {
+            Authorization: localStorage.getItem("authorization")
+          }
+        });
+        if (response.status === 200) setIm(response.data);
+      }
+    };
+    f();
+  }, []);
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
@@ -58,7 +74,7 @@ export default function Home(props: RouteComponentProps) {
             Message
           </Button>
           <Button color="inherit" onClick={() => jumpTo("signin")}>
-            Login
+            {im ? im : <p>Login</p>}
           </Button>
         </Toolbar>
       </AppBar>
