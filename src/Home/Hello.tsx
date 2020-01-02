@@ -113,7 +113,7 @@ export default function Hello(props: RouteComponentProps) {
                 欢迎
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                这是我的个人主页，记录开发日常中所踩的坑,测试spring boot在开发环境上的配置需求.
+                这是Perol_Notsf的个人主页，记录开发日常中所踩的坑,测试spring boot在开发环境上的配置需求.
             </Typography>
             <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">
@@ -123,7 +123,7 @@ export default function Hello(props: RouteComponentProps) {
                         </Button>
                     </Grid>
                     <Grid item>
-                        <Button variant="outlined" color="primary" onClick={() => onPenBlankLink('https://play.google.com/store/apps/developer?id=Perol_Notsf')}>
+                        <Button variant="outlined" color="primary" onClick={() => onPenBlankLink('https://notsfsssf.github.io/Pix-EzViewer/')}>
                             下载我开发的 APP
                         </Button>
                     </Grid>
