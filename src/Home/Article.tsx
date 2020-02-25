@@ -63,7 +63,7 @@ function CCCopyright() {
         <>
             <Typography variant="body2" color="textSecondary" align="center">
                 {'Copyright © '}
-                <Link color="inherit" href="https://perol.me/">
+                <Link color="inherit" href="https://perol.fun/">
                     Perol Website
             </Link>{' '}
                 {new Date().getFullYear()}

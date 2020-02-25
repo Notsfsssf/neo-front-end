@@ -8,7 +8,11 @@ import {
     makeStyles,
     Typography,
     Theme,
-    createStyles
+    createStyles,
+    ListItem,
+    List,
+    ListItemText,
+    Divider
 } from "@material-ui/core";
 import API from "../API";
 import { RouteComponentProps } from "react-router-dom";
@@ -22,6 +26,10 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         cardDetails: {
             flex: 1,
+        },
+        root: {
+            width: '100%',
+            backgroundColor: theme.palette.background.paper,
         },
         bullet: {
             display: 'inline-block',
@@ -74,35 +82,24 @@ export default function Hello(props: RouteComponentProps) {
     }
 
     const listItem = data.map((article: ArticleBean) =>
-        <Grid item xs={12} md={6} key={article.id}>
-            <CardActionArea component="a" href={"/article/" + article.id}>
-                <Card className={classes.card}>
-                    <div className={classes.cardDetails}>
-                        <CardContent>
-                            <Typography component="h2" variant="h5">
-                                {article.title}
-                            </Typography>
-                            <Typography variant="subtitle1" color="textSecondary">
-                                {article.createTime}
-                            </Typography>
-                            <Typography variant="subtitle1" paragraph>
-                                {article.summary}
-                            </Typography>
-                            <Typography variant="subtitle1" color="primary" onClick={() => jumpTo(article.id)}>
-                                Continue reading...
-                            </Typography>
-                        </CardContent>
-                    </div>
-                    <Hidden xsDown>
-                        <CardMedia
-                            className={classes.cardMedia}
-                            image="https://source.unsplash.com/random"
-                            title="Image title"
-                        />
-                    </Hidden>
-                </Card>
-            </CardActionArea>
-        </Grid>
+        <ListItem button key={article.id}>
+            <ListItemText
+            onClick={()=>jumpTo(article.id)}
+                primary={article.title}
+                secondary={
+                    <React.Fragment>
+                        <Typography
+                            component="span"
+                            variant="body2"
+                            color="textPrimary"
+                        >
+                            {article.updateTime}
+                        </Typography>
+                        {article.summary}
+                    </React.Fragment>
+                }
+            />
+        </ListItem>
     )
     function onPenBlankLink(url: string) {
         window.open(url)
@@ -140,8 +137,12 @@ export default function Hello(props: RouteComponentProps) {
     return (
         <React.Fragment>
             {hero}
-            <Grid container spacing={4} className={classes.cardGrid}>
-                {requestError ? errorContainer : data.length === 0 ? empty : listItem}
+            <Grid container>
+                <Grid item xs={12}>
+                    <List className={classes.root}>
+                        {requestError ? errorContainer : data.length === 0 ? empty : listItem}
+                    </List>
+                </Grid>
             </Grid>
         </React.Fragment>
     )

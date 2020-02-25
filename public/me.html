@@ -1,0 +1,766 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9;IE=8;IE=7;IE=EDGE">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate" media="handheld" href="#" />
+    <meta charset="utf-8">
+    <title>张培荣的简历</title>
+    <style>
+        * {
+            outline: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "Hiragino Sans GB", "Microsoft Yahei", "SimSun", Arial, "Helvetica Neue", Helvetica;
+            color: #333;
+            word-wrap: break-word;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block;
+        }
+
+        progress {
+            display: inline-block;
+            vertical-align: baseline;
+        }
+
+        a {
+            color: #555;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #00b38a;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 10px 0;
+            font-weight: normal;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        p+p {
+            margin-top: 10px;
+        }
+
+        img {
+            border: 0;
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ededed;
+            border-radius: 0;
+            font-family: "Hiragino Sans GB", "Microsoft Yahei", "SimSun", Arial, "Helvetica Neue", Helvetica;
+        }
+
+        textarea {
+            overflow: auto;
+        }
+
+        label,
+        select,
+        button,
+        input[type="button"],
+        input[type="reset"],
+        input[type="submit"],
+        input[type="radio"],
+        input[type="checkbox"],
+        input[type="file"] {
+            cursor: pointer;
+        }
+
+        input[type=text],
+        input[type=password],
+        textarea {
+            font-family: "Microsoft Yahei", "SimSun", Arial, "Helvetica Neue", Helvetica;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 0;
+        }
+
+        strong {
+            font-weight: normal;
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        dl,
+        dt,
+        dd {
+            margin: 0;
+        }
+
+        ::selection {
+            color: #fff;
+            background-color: #00b38a;
+        }
+
+        ::-moz-selection {
+            color: #fff;
+            background-color: #00b38a;
+        }
+
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #container {
+            width: 720px;
+            margin: 50px auto 54px auto;
+            border: 1px solid #e3ebe9;
+            border-radius: 5px;
+        }
+
+        .mr-template {
+            padding: 50px 50px 10px;
+        }
+
+        .mr-template .mr-template_title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .mr-template .mr-template_title span {
+            font-size: 18px;
+            color: #333333;
+            font-weight: 600;
+            position: relative;
+            margin-left: 10px;
+        }
+
+        .mr-template .mr-template_title span:before {
+            content: '';
+            display: block;
+            border-left: 3px solid #00B38A;
+            height: 16px;
+            width: 3px;
+            position: absolute;
+            left: -7px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .mr-template .mr_md_del {
+            display: none;
+        }
+
+        /***** 基本信息 ****/
+
+        .basic {
+            padding: 50px;
+            background: #FAFAFA;
+            border-radius: 5px 5px 0 0;
+            border-bottom: 1px solid #E3EBE9;
+            display: flex;
+        }
+
+        .basic .basic-photo {
+            height: 88px;
+            width: 88px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .basic .basic-photo img {
+            height: 88px;
+            width: 88px;
+            position: absolute;
+            top: 0;
+            border-radius: 50%;
+        }
+
+        .basic .basic-photo .basic-photo_shadow {
+            display: none;
+        }
+
+        .basic .basic-photo:hover .basic-photo_shadow {
+            display: block;
+        }
+
+        .basic .basic-info {
+            position: relative;
+            width: 100%;
+            margin-left: 20px;
+            flex: 1;
+        }
+
+        .basic .basic-info .edit-btn {
+            position: absolute;
+            right: 0;
+            top: 4px;
+        }
+
+        .basic .basic-info .basic-name-area {
+            overflow: hidden;
+            height: 37px;
+            margin-bottom: 11px;
+        }
+
+        .basic .basic-info .basic-name {
+            float: left;
+            max-width: 250px;
+            font-size: 26px;
+            color: #333333;
+            font-weight: 600;
+            line-height: 37px;
+        }
+
+        .basic .basic-info .icon-sex {
+            width: 13px;
+            height: 13px;
+            float: left;
+            margin-top: 16px;
+            margin-left: 10px;
+            background: none;
+        }
+
+        .basic .basic-info .icon-sex.icon-sex__male {
+            background: url(https://www.lgstatic.com/common/image/pc/icon_man.png);
+        }
+
+        .basic .basic-info .icon-sex.icon-sex__female {
+            background: url(https://www.lgstatic.com/common/image/pc/icon_woman.png);
+        }
+
+        .basic .basic-info .basic-self {
+            margin-top: 20px;
+        }
+
+        .basic .basic-info p {
+            font-size: 14px;
+            color: #333333;
+            line-height: 20px;
+            margin-top: 6px;
+        }
+
+        .basic .basic-info i {
+            display: inline-block;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .basic .basic-info .basic-tel_icon {
+            width: 11px;
+            height: 14px;
+            margin-right: 2px;
+            background: url(https://www.lgstatic.com/common/image/pc/icon_phone.png);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .basic .basic-info .basic-email_icon {
+            width: 14px;
+            height: 11px;
+            margin-right: 2px;
+            background: url(https://www.lgstatic.com/common/image/pc/icon_mail.png);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .basic .basic-info .basic-tel {
+            margin-right: 20px;
+        }
+
+        .basic-tel span {
+            vertical-align: middle;
+        }
+
+        .basic-email span {
+            vertical-align: middle;
+        }
+
+        /***** 基本信息 end ****/
+
+        /***** 自我描述 ****/
+
+        .per .per-self_content {
+            position: relative;
+        }
+
+        .per .per-self_content .per-self_des {
+            margin-top: 13px;
+            font-size: 14px;
+            color: #666666;
+            line-height: 30px;
+        }
+
+        .per .per-self_content .per-self_des p {
+            margin-top: 0;
+        }
+
+        .per .per-self_content .per-self_des ol {
+            list-style-type: decimal;
+            -webkit-padding-start: 20px;
+        }
+        .per .per-self_content .per-self_des ul {
+            list-style: disc;
+            -webkit-padding-start: 20px;
+        }
+
+        /***** 自我描述 end ****/
+
+        /***** 工作经历 ****/
+
+        .work-exp .work-exp_list {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .work-exp .work-exp_list .exp-list_time {
+            font-size: 14px;
+            color: #666666;
+            position: absolute;
+            right: 0;
+        }
+
+        .work-exp .work-exp_list .exp-list_top {
+            display: flex;
+            align-items: center;
+        }
+
+        .work-exp .work-exp_list .exp-list_top img {
+            width: 46px;
+            height: 46px;
+            margin-right: 10px;
+        }
+
+        .work-exp .work-exp_list .exp-list_top .exp-list_right {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: 46px;
+            justify-content: space-between;
+        }
+
+        .work-exp .work-exp_list .exp-list_top .exp-list_right p,
+        .work-exp .work-exp_list .exp-list_top .exp-list_right strong {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .work-exp .work-exp_list .exp-list_top .exp-list_right strong {
+            font-weight: 600;
+        }
+
+        .work-exp .work-exp_list .tagboard {
+            margin: 20px 0 10px;
+        }
+
+        .work-exp .work-exp_list .exp-list_content {
+            font-size: 14px;
+            color: #666666;
+            line-height: 30px;
+        }
+
+        .tagboard .tagboard-tag {
+            font-size: 12px;
+            color: #999;
+            line-height: 18px;
+            padding: 3px 10px;
+            border: 1px solid #EAEDEC;
+            border-radius: 100px;
+            margin-right: 10px;
+        }
+
+        .work-exp .work-exp_list .exp-list_content ul, .work-exp .work-exp_list .exp-list_content_highlight ul {
+            list-style: disc;
+            -webkit-padding-start: 20px;
+        }
+
+        .work-exp .work-exp_list .exp-list_content ol, .work-exp .work-exp_list .exp-list_content_highlight ol {
+            list-style-type: decimal;
+            -webkit-padding-start: 20px;
+        }
+        /***** 工作经历 end ****/
+
+        /***** 项目经历 ****/
+
+        .pro-exp .pro-exp_list {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_title {
+            font-size: 14px;
+            color: #333333;
+            font-weight: 600;
+            cursor: default;
+            display: flex;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_title .exp-project_name, .pro-exp .pro-exp_list .exp-list_title .exp-project_company span {
+            max-width: 222px;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_title .exp-project_company {
+            display: flex;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_time {
+            font-size: 14px;
+            color: #666666;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_content,
+        .pro-exp .pro-exp_list .exp-project_des {
+            font-size: 14px;
+            color: #666666;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+
+        .pro-exp .exp-list_title.active:hover {
+            color: #00B38A;
+            cursor: pointer;
+        }
+        .pro-exp .exp-project_url {
+            font-size: 14px;
+            color: #666;
+            line-height: 30px;
+        }
+        .pro-exp .pro-exp_list .exp-list_content ul, .pro-exp .pro-exp_list .exp-project_des ul {
+            list-style: disc;
+            -webkit-padding-start: 20px;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_content ol,.pro-exp .pro-exp_list .exp-project_des ol{
+            list-style-type:decimal;-webkit-padding-start:20px
+        }
+
+        /***** 项目经历 end ****/
+
+        /***** 教育经历 ****/
+
+        .edu-exp .edu-exp_list {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_time {
+            font-size: 14px;
+            color: #666666;
+            position: absolute;
+            right: 0;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top {
+            display: flex;
+            align-items: center;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top img {
+            width: 46px;
+            height: 46px;
+            margin-right: 10px;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: 46px;
+            justify-content: space-between;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right p,
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right strong {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right strong {
+            font-weight: 600;
+        }
+
+
+        /***** 教育经历 end ****/
+
+        /***** 社交主页 ****/
+
+        .social-page .social-page_list {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .social-page .social-page_list .social-page_content {
+            display: flex;
+        }
+
+        .social-page .social-page_list .social-page_content img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .social-page .social-page_list .social-page_content p {
+            font-size: 14px;
+            color: #666666;
+        }
+
+
+        /***** 社交主页 end ****/
+                /***** 图片作品 ****/
+
+        .portfolio-page .portfolio-list{
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .portfolio-page .portfolio-list .portfolio-content{
+            font-size: 14px;
+            color: #666666;
+        }
+
+
+        /***** 图片作品 end ****/
+    </style>
+</head>
+
+    <body>
+        <div id="container">
+            <!-- 基本信息 -->
+            <div class="basic" id="baseInfo">
+                <div class="basic-photo">
+                    <img class="mr_headimg user-avatar" id="userpic" src="https://www.lgstatic.com/i/image2/M01/9F/57/CgoB5l2yV4KAMkCkAACJRYzbreM992.jpg" width="120" height="120" alt="头像"
+                    />
+                </div>
+                <div class="basic-info">
+                    <div class="basic-name-area">
+                        <p class="basic-name female">张培荣</p>
+                            <i class="icon-sex icon-sex__male"></i>
+                    </div>
+                        <p class="basic-self">
+                                    <span class="basic-school">湖南工学院</span>
+
+                                    <span class="basic-edu"> / 本科 . 统招  </span>
+
+                                        <span class="basic-end-year"> / 应届毕业生</span>
+
+                                <span class="basic-age">
+                                     / 22岁</span>
+
+                        </p>
+                    <p>
+                            <span class="basic-tel">
+                                <i class="basic-tel_icon"></i>
+                                <span>MTc2ODAzNDgxNjE=</span>
+                            </span>
+                            <span class="basic-email">
+                                <i class="basic-email_icon"></i>
+                                <span>asdplk3@live.com</span>
+                            </span>
+                    </p>
+                </div>
+            </div>
+            <!-- /基本信息 -->
+
+            <!-- 自我描述 -->
+            <div class="mr-template per" id="perAbility">
+                <div class="mr-template_title">
+                    <span>个人优势</span>
+                </div>
+                <div class="tagboard integrative-tag">
+                    <div class="integrative-tag_content">
+                                <span class="tagboard-tag">flutter</span>
+                                <span class="tagboard-tag">android</span>
+                                <span class="tagboard-tag">java</span>
+                    </div>
+                </div>
+                <div class="per-self_content">
+                        <div class="per-self_des">
+                            能够独立进行Android应用开发，使用flutter框架进行过完整的应用实践，能够使用spring框架进行简单的restful api开发搭建
+                        </div>
+                </div>
+            </div>
+            <!-- /自我描述 -->
+
+                <!-- 教育经历 -->
+                    <div class="mr-template edu-exp" id="eduExp">
+                        <div class="mr-template_title">
+                            <span>教育经历</span>
+                        </div>
+                        <ol class="edu-exp_group">
+                                <li class="edu-exp_list">
+                                    <p class="exp-list_time">2016.09-2020.06</p>
+                                    <div class="exp-list_top">
+                                        <img src="https://www.lgstatic.com/i/image/M00/AD/4D/Cgp3O1i1E22AHLrmAAAQMVbMQMc66.jpeg" alt="学校Logo">
+                                        <div class="exp-list_right">
+                                            <strong>湖南工学院</strong>
+                                            <p>本科 . 统招   / 材料成型及控制工程</p>
+                                        </div>
+                                    </div>
+                                </li>
+                        </ol>
+                    </div>
+                <!-- /教育经历 -->
+
+            <!-- 工作经历 -->
+            <!-- /工作经历 -->
+
+            <!-- 项目经历 -->
+                <div class="mr-template pro-exp" id="proExp">
+                    <div class="mr-template_title">
+                        <span>项目经历</span>
+                    </div>
+                    <ol class="pro-exp_group">
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">flutter ios应用:Pixez</span>
+                                </p>
+                                <p class="exp-list_time">2019.11-至今</p>
+                                <div class="exp-project_des"><p>针对Pixez安卓客户端使用flutter重写，编译上架ios商店，使用flutter&nbsp;bloc框架</p></div>
+                                <div class="exp-list_content">
+                                    <p>使用flutter&nbsp;bloc模式完整实践了一个应用，了解到了flutter框架的部分优缺点</p>
+<p>熟悉了apple&nbsp;app&nbsp;store的上架流程和坑，比如permission&nbsp;handler如果不改podfile会把权限都算上，造成申请不需要的权限</p>
+                                </div>
+                                <a href="https://apps.apple.com/cn/app/pixez/id1494435126">
+                                <p class="exp-project_url">项目链接: https://apps.apple.com/cn/app/pixez/id1494435126</p>
+                            </a>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">flutter android应用：Konayan</span>
+                                </p>
+                                <p class="exp-list_time">2019.01-至今</p>
+                                <div class="exp-project_des"><p>1. 整合了konachan和yande两个同种框架的网站图源，均为Booru图站。<br />2. 使用简单的Provider状态管理来实时切换主题和图站源。<br />3. 使用Cachemanager解决了预览缓存保存到本地的问题。 <br />4. platform channel与原生代码交互，实现保存图片</p></div>
+                                <div class="exp-list_content">
+                                    <ul>
+ <li>了解声明式ui的好处</li>
+</ul>
+                                </div>
+                                <a href="https://github.com/Notsfsssf/Konayan">
+                                <p class="exp-project_url">项目链接: https://github.com/Notsfsssf/Konayan</p>
+                                </a>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">个人网站</span>
+                                </p>
+                                <p class="exp-list_time">2018.08-至今</p>
+                                <div class="exp-project_des"><p>后端：&nbsp; https://github.com/Notsfsssf/neo-back-end&nbsp;&nbsp;<br />● 使用spring boot进行后端接口开发。<br />● 使用spring security进行 url权限管理。 <br />● 使用jwt获得并鉴别无状态 token。 <br />● 使用mysql作为后端数据库，表的主键为自增键。 <br />前端：&nbsp; https://github.com/Notsfsssf/neo-front-end&nbsp;&nbsp;<br />● 使用react.js typescript编写,脚手架式开发。 <br />● 引用UI框架material-ui进行自定义。<br />部署： <br />● 后端生成jar包，使用 nohup后台运行，监听8080端口。<br />● 使用cloudflare进行网站的cdn加速。<br />● 使用caddy进行转发，配合react router进行网页路由，并转发api请求到后端 spring boot。 <br />● 静态前端资源使用git配合更新同步，节省部署时上传小文件的时间。<br />● 使用cloudflare的证书实现https</p></div>
+                                <div class="exp-list_content">
+                                    <ol>
+ <br /> 
+ <li>已了解网站前后端的搭建配置与编写</li>
+ <br />
+</ol>
+                                </div>
+                                <a href="https://perol.fun">
+                                <p class="exp-project_url">项目链接: https://perol.fun</p></a>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">Pixiv站第三方Android（原生）客户端</span>
+                                </p>
+                                <p class="exp-list_time">2018.03-至今</p>
+                                <div class="exp-project_des"><p>PixEz阅读器&nbsp;</p>
+<p>● 适配AndroidX，对官方组件库有一定的了解。</p>
+<p>●&nbsp;适配深色模式&nbsp;<br />● 已上架到 google play，熟悉相关流程，国内版本集成bugly 上报错误信息。 <br />● 使用kotlin&amp;java编写，了解非空断言的好处。 <br />● 使用recyclerview实现瀑布流，glide进行图片缓存加载，rxjava进行异步操作，room储存用户数据。</p>
+<p>&nbsp;<br /><br /></p></div>
+                                <div class="exp-list_content">
+                                    <p></p>
+<ul>
+ <li>应用在google play已有3万的下载量</li>
+ <li>应用在 酷安曾有20万累计下载量&nbsp;<br /></li>
+ <li>github上已有三位贡献者，七百star</li>
+</ul>
+<p></p>
+                                </div>
+                                <p class="exp-project_url">项目链接:<a href="https://github.com/Notsfsssf/Pix-EzViewer" >https://github.com/Notsfsssf/Pix-EzViewer</a></p>
+                            </li>
+                    </ol>
+                </div>
+            <!-- /项目经历 -->
+
+            <!-- 社交主页 -->
+                <div class="mr-template social-page" id="socialPage">
+                    <div class="mr-template_title">
+                        <span>社交主页</span>
+                    </div>
+                    <ol class="social-page_group">
+                            <li class="social-page_list">
+                                <div class="social-page_content">
+                                    <img src="https://www.lgstatic.com/common/image/social/default@2x.png" alt="">
+                                    <a href="https://github.com/Notsfsssf">
+                                    <p>https://perol.fun</p></a>
+                                </div>
+                            </li>
+                            <li class="social-page_list">
+                                <div class="social-page_content">
+                                    <img src="https://www.lgstatic.com/common/image/social/github@2x.png" alt="">
+                                    <a href="https://github.com/Notsfsssf">
+                                    <p>https://github.com/Notsfsssf</p></a>
+                                </div>
+                            </li>
+                    </ol>
+                </div>
+            <!-- /社交主页 -->
+
+            <!-- 图片作品 -->
+            <div class="mr-template portfolio-page" id="portfolioPage">
+           
+   
+            </div>
+            <!-- /图片作品 -->
+        </div>
+    <script type="text/javascript" crossorigin="anonymous" src="https://www.lagou.com/upload/oss.js?v=1010"></script></body>
+
+</html>
