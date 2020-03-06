@@ -3,8 +3,19 @@ import { Card, Container, ListItemText, Typography, Link, Theme, List, ListItem,
 import { makeStyles, createStyles } from "@material-ui/styles";
 import { RouteComponentProps } from "react-router-dom";
 import API from "../API";
-
-
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco, dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+interface CodeProps{
+    value:string,
+    language:string
+}
+function CodeCon(props:CodeProps){
+    return (
+        <SyntaxHighlighter language={props.language} style={dark}>
+          {props.value}
+        </SyntaxHighlighter>
+      );
+}
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         title: {
@@ -220,7 +231,7 @@ export default function Article(props: ArticleProps) {
     }, [])
 
 
-    const ReactMarkdown = require('react-markdown/with-html')
+    const ReactMarkdown = require('react-markdown')
 
     return (
         <React.Fragment>
@@ -232,6 +243,9 @@ export default function Article(props: ArticleProps) {
                         <ReactMarkdown
                             source={data.content}
                             escapeHtml={false}
+                            renderers={{
+                               code:CodeCon
+                            }}
                         />
                         {
                             data.updateTime ? <ListItemText primary='修改于' secondary={data.updateTime} /> : <></>
