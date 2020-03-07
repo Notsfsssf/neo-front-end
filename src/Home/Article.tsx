@@ -1,5 +1,5 @@
 import React, { useEffect, useState, ComponentProps } from "react";
-import { Card, Container, ListItemText, Typography, Link, Theme, List, ListItem, ListItemAvatar, Avatar, Divider, Paper, TextField, Button, Grid } from "@material-ui/core";
+import { Card, Container, ListItemText, Typography, Link, Theme, List, ListItem, ListItemAvatar, Avatar, Divider, Paper, TextField, Button, Grid, ListSubheader } from "@material-ui/core";
 import { makeStyles, createStyles } from "@material-ui/styles";
 import { RouteComponentProps } from "react-router-dom";
 import API from "../API";
@@ -201,7 +201,8 @@ export function CommentList(props: CommentInfo) {
         </>
     )
     return (<>
-        <List className={classes.root}>
+    
+        <List>
             {data.length !== 0 ? comments : <>
                 Nobody here but us chickens
             </>}
