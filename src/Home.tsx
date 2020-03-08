@@ -40,20 +40,20 @@ export default function Home(props: RouteComponentProps) {
   function jumpTo(url: string) {
     props.history.push("/" + url);
   }
-  useEffect(() => {
-    const f = async () => {
-      const au = localStorage.getItem("authorization");
-      if (au) {
-        const response = await API.get("/whoami", {
-          headers: {
-            Authorization: localStorage.getItem("authorization")
-          }
-        });
-        if (response.status === 200) setIm(response.data);
-      }
-    };
-    f();
-  }, []);
+  // useEffect(() => {
+  //   const f = async () => {
+  //     const au = localStorage.getItem("authorization");
+  //     if (au) {
+  //       const response = await API.get("/whoami", {
+  //         headers: {
+  //           Authorization: localStorage.getItem("authorization")
+  //         }
+  //       });
+  //       if (response.status === 200) setIm(response.data);
+  //     }
+  //   };
+  //   f();
+  // }, []);
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
