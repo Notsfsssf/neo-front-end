@@ -63,18 +63,18 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Hello(props: RouteComponentProps) {
     const classes = useStyles();
     const [data, setData] = useState([]);
+    const [current, setCurrent] = useState(1);
     const [requestError, setRequestError] = useState(false)
     useEffect(() => {
-
-        async function f() {
+        var f = async () => {
             try {
-                let response = await API.get(`/article`)
-                setData(response.data);
+                let response = await API.get(`/article?current=${current}&size=10`)
+                setData(response.data)
+                await API.post(`/visit/website`)
             } catch (e) {
                 setRequestError(true)
             }
         }
-
         f()
     }, [])
 
@@ -85,7 +85,7 @@ export default function Hello(props: RouteComponentProps) {
     const listItem = data.map((article: ArticleBean) =>
         <ListItem button key={article.id}>
             <ListItemText
-            onClick={()=>jumpTo(article.id)}
+                onClick={() => jumpTo(article.id)}
                 primary={article.title}
                 secondary={
                     <React.Fragment>
@@ -134,17 +134,17 @@ export default function Hello(props: RouteComponentProps) {
     </>
     const empty = <>
         Blank
-</>
+    </>
     return (
         <React.Fragment>
             {hero}
             <Grid container>
                 <Grid item xs={12}>
-                    <List className={classes.root} component="nav"   aria-labelledby="nested-list-subheader"    subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Article
+                    <List className={classes.root} component="nav" aria-labelledby="nested-list-subheader" subheader={
+                        <ListSubheader component="div" id="nested-list-subheader">
+                            Article
         </ListSubheader>
-      }>
+                    }>
                         {requestError ? errorContainer : data.length === 0 ? empty : listItem}
                     </List>
                 </Grid>

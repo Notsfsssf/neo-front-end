@@ -119,6 +119,7 @@ export function CreateComment(props: CommentInfo) {
     })
     async function create() {
         if (data.name && data.content && data.email) {
+            console.log(data)
             let response = await API.post('/comment', data)
             window.location.reload(true)
         }
