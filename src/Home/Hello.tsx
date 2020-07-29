@@ -13,7 +13,8 @@ import {
     List,
     ListItemText,
     Divider,
-    ListSubheader
+    ListSubheader,
+    Link
 } from "@material-ui/core";
 import API from "../API";
 import { RouteComponentProps } from "react-router-dom";
@@ -59,7 +60,30 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 )
 
+function foot() {
+    return (
+        <>
+            <Typography variant="body2" color="textSecondary" align="center">
+                {'Copyright © '}
+                <Link color="inherit" href="https://perol.fun/">
+                    Perol Website
+            </Link>{' '}
+                {new Date().getFullYear()}
+                {'. Built with '}
+                <Link color="inherit" href="https://material-ui.com/">
+                    Material-UI.
+            </Link>
+            </Typography>
+            <Typography variant="body2" color="textSecondary" align="center">
+                版权声明：本文为Perol原创文章，遵循
+            <Link color="inherit" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">
+                    CC 4.0 by-sa
+            </Link>
 
+            </Typography>
+        </>
+    );
+}
 export default function Hello(props: RouteComponentProps) {
     const classes = useStyles();
     const [data, setData] = useState([]);
@@ -135,6 +159,7 @@ export default function Hello(props: RouteComponentProps) {
     const empty = <>
         Blank
     </>
+    const footer = window.location.host == 'perol.fun' ? <a href="http://www.beian.miit.gov.cn/" target="_blank">闽ICP备20014649号-1</a> : <p></p>
     return (
         <React.Fragment>
             {hero}
@@ -143,12 +168,18 @@ export default function Hello(props: RouteComponentProps) {
                     <List className={classes.root} component="nav" aria-labelledby="nested-list-subheader" subheader={
                         <ListSubheader component="div" id="nested-list-subheader">
                             Article
-        </ListSubheader>
+                        </ListSubheader>
                     }>
                         {requestError ? errorContainer : data.length === 0 ? empty : listItem}
                     </List>
                 </Grid>
+                <Grid item xs={12}>
+                    <ListItem>
+                        {footer}
+                    </ListItem>
+                </Grid>
             </Grid>
+
         </React.Fragment>
     )
 }
